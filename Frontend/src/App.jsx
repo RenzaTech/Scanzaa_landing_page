@@ -4,10 +4,13 @@ import AnimatedBackground from './components/AnimatedBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import BrandStatement from './components/BrandStatement';
-import Features from './components/Features';
-import QRExperience from './components/QRExperience';
+import Ecosystem from './components/Ecosystem';
+import HowItWorks from './components/HowItWorks';
 import RestaurantDashboard from './components/RestaurantDashboard';
+import WaiterPortal from './components/WaiterPortal';
 import CustomerExperience from './components/CustomerExperience';
+import PremiumFeatures from './components/PremiumFeatures';
+import PremiumCTA from './components/PremiumCTA';
 import Services from './components/Services';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
@@ -41,31 +44,40 @@ export default function App() {
       {/* 4. Fullscreen Video Hero Section */}
       <Hero onOpenContact={handleOpenContact} />
 
-      {/* 5. Brand Statement */}
+      {/* 5. Section 01: Brand Statement */}
       <BrandStatement />
 
-      {/* 6. Premium Features */}
-      <Features />
+      {/* 6. Section 02: The ScanzAA Ecosystem (Restaurant Admin, Waiter Portal, Customer Scan View) */}
+      <Ecosystem />
 
-      {/* 7. Interactive QR Experience */}
-      <QRExperience />
+      {/* 7. Section 03: How ScanzAA Works (Table to Service in Seconds) */}
+      <HowItWorks />
 
-      {/* 10. Restaurant Admin Dashboard */}
+      {/* 8. Section 04: Restaurant Admin Dashboard Mockup */}
       <RestaurantDashboard />
 
-      {/* 11. Customer Experience */}
+      {/* 9. Section 05: Dedicated Waiter Portal Section */}
+      <WaiterPortal />
+
+      {/* 10. Section 06: Customer Scan View (Phone + QR Stand Flow) */}
       <CustomerExperience />
 
-      {/* 12. Premium Services */}
+      {/* 11. Section 07: Unlock More With Premium (Locked & Blurred Features) */}
+      <PremiumFeatures onOpenContact={handleOpenContact} />
+
+      {/* 12. Section 08: Premium CTA */}
+      <PremiumCTA onOpenContact={handleOpenContact} />
+
+      {/* 13. Section 09: Restaurant Services (White-Glove Setup) */}
       <Services onOpenContact={handleOpenContact} />
 
-      {/* 13. Restaurant CTA */}
+      {/* 14. Final CTA: Make Every Table Smarter */}
       <CTA onOpenContact={handleOpenContact} />
 
-      {/* 14. Footer */}
+      {/* 15. Premium Footer */}
       <Footer onOpenContact={handleOpenContact} />
 
-      {/* 15. Interactive Contact Inquiry Modal */}
+      {/* 16. Interactive Contact Inquiry Modal */}
       <ContactModal isOpen={contactModalOpen} onClose={handleCloseContact} />
     </div>
   );

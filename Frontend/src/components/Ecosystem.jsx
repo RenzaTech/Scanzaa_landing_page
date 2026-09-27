@@ -1,15 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import { ECOSYSTEM_DATA } from '../data/scanzaData';
-import { Store, Smartphone, BellRing, Check, Sparkles, ArrowUpRight } from 'lucide-react';
+import { LayoutDashboard, ConciergeBell, ScanLine, Check, Sparkles, ArrowUpRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const iconMap = {
-  Store: Store,
-  Smartphone: Smartphone,
-  BellRing: BellRing
+  LayoutDashboard: LayoutDashboard,
+  ConciergeBell: ConciergeBell,
+  ScanLine: ScanLine
 };
 
 export default function Ecosystem() {
@@ -52,37 +52,37 @@ export default function Ecosystem() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00D2C4]/10 border border-[#00D2C4]/30 text-[#00D2C4] text-xs font-semibold uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>The Scanza Ecosystem</span>
+            <span>The ScanzAA Ecosystem</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
             One Platform. <br />
             <span className="gradient-text-turquoise">Three Experiences.</span>
           </h2>
           <p className="text-base sm:text-lg text-[#8B9696] leading-relaxed">
-            Scanza connects venue operations, floor staff, and guest dining into one seamless digital menu ecosystem.
+            ScanzAA connects your restaurant, service staff and customers through one seamless digital experience.
           </p>
         </div>
 
         {/* Ecosystem 3 Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {ECOSYSTEM_DATA.map((card, index) => {
-            const IconComponent = iconMap[card.iconName] || Store;
+            const IconComponent = iconMap[card.iconName] || LayoutDashboard;
             
             return (
               <div
                 key={card.id}
                 ref={(el) => (cardsRef.current[index] = el)}
-                className="group relative glass-card rounded-3xl p-8 border border-[#00D2C4]/15 hover:border-[#00D2C4]/50 flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-xl"
+                className="group relative glass-card rounded-3xl p-8 border border-white/[0.08] hover:border-[#00D2C4] flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(0,210,196,0.2)] overflow-hidden"
               >
                 {/* Background Hover Gradient */}
-                <div className="absolute -top-24 -right-24 w-56 h-56 bg-[#00D2C4]/10 rounded-full blur-2xl group-hover:bg-[#00D2C4]/20 transition-all duration-500 pointer-events-none" />
+                <div className="absolute -top-24 -right-24 w-56 h-56 bg-gradient-to-br from-[#00D2C4]/10 to-transparent rounded-full blur-2xl group-hover:from-[#00D2C4]/25 transition-all duration-500 pointer-events-none" />
 
                 <div>
                   {/* Top Header Row */}
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-2xl bg-[#00D2C4]/10 border border-[#00D2C4]/30 flex items-center justify-center text-[#00D2C4] group-hover:bg-[#00D2C4] group-hover:text-[#050808] transition-all duration-300 shadow-md">
-                        <IconComponent className="w-6 h-6" />
+                      <div className="w-12 h-12 rounded-2xl bg-[#00D2C4]/10 border border-[#00D2C4]/30 flex items-center justify-center text-[#00D2C4] group-hover:bg-[#00D2C4] group-hover:text-[#050808] group-hover:scale-105 transition-all duration-300 shadow-md">
+                        <IconComponent className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" />
                       </div>
                       <div>
                         <span className="text-xs font-bold tracking-widest text-[#00D2C4]">
@@ -126,8 +126,10 @@ export default function Ecosystem() {
 
                 {/* Footer Action */}
                 <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-[#00D2C4] group-hover:text-[#80FFF5] transition-colors">
-                  <span>Explore {card.title}</span>
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <a href={card.targetId} className="flex items-center gap-1.5 group-hover:underline">
+                    <span>{card.cta}</span>
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
                 </div>
               </div>
             );

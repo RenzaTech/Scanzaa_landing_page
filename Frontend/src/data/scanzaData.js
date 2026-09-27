@@ -1,157 +1,208 @@
+export const NAV_LINKS = [
+  { name: 'Home', href: '#hero' },
+  { name: 'Features', href: '#ecosystem' },
+  { name: 'How It Works', href: '#how-it-works' },
+  { name: 'Solutions', href: '#admin' },
+  { name: 'Premium', href: '#premium' }
+];
+
 export const ECOSYSTEM_DATA = [
   {
     id: '01',
-    title: 'RESTAURANT ADMIN',
+    title: 'Restaurant Admin',
     subtitle: 'For Restaurant Owners & Managers',
-    description: 'Everything restaurants need to manage their digital menu in real-time with zero friction.',
+    description: 'Manage your restaurant\'s digital menu, QR codes and restaurant information from one centralized dashboard.',
     badge: 'Operations Hub',
-    iconName: 'Store',
+    iconName: 'LayoutDashboard',
     features: [
-      'Full category & item management',
-      'High-res food image uploads & galleries',
-      'Dynamic pricing & currency control',
-      '1-tap live item availability toggle',
-      'Table-specific QR code generator',
-      'Real-time menu interaction analytics'
-    ]
+      'Restaurant profile',
+      'Menu categories',
+      'Menu items',
+      'Food images',
+      'Pricing',
+      'Availability',
+      'QR generation',
+      'Table QR management',
+      'Menu analytics'
+    ],
+    cta: 'Explore Restaurant Admin',
+    targetId: '#admin'
   },
   {
     id: '02',
-    title: 'CUSTOMER EXPERIENCE',
-    subtitle: 'For Restaurant Guests',
-    description: 'A simple scan that opens the restaurant\'s digital menu instantly right inside their mobile browser.',
-    badge: 'Instant Access',
-    iconName: 'Smartphone',
+    title: 'Waiter Portal',
+    subtitle: 'For Floor Staff & Captains',
+    description: 'Give restaurant staff a dedicated workspace to manage tables, customer requests and service activity.',
+    badge: 'Service Hub',
+    iconName: 'ConciergeBell',
     features: [
-      'Zero app download required',
-      'Instant mobile browser rendering',
-      'Fast category browsing & instant search',
-      'High-res dish visual previews & descriptions',
-      'Real-time availability badges & dietary tags',
-      'Always accesses the absolute latest menu'
-    ]
+      'Assigned tables',
+      'Table requests',
+      'Service notifications',
+      'Request acknowledgement',
+      'Service status',
+      'Completed requests',
+      'Real-time updates'
+    ],
+    cta: 'Explore Waiter Portal',
+    targetId: '#waiter'
   },
   {
     id: '03',
-    title: 'WAITER PORTAL',
-    subtitle: 'For Floor Staff & Captains',
-    description: 'A dedicated mobile workflow empowering floor staff to track table activity, receive guest requests, and serve faster.',
-    badge: 'Floor Assist',
-    iconName: 'BellRing',
+    title: 'Customer Scan View',
+    subtitle: 'For Restaurant Guests',
+    description: 'Customers simply scan the QR code on their table and instantly access the restaurant\'s digital menu.',
+    badge: 'Instant Access',
+    iconName: 'ScanLine',
     features: [
-      'Real-time table order notifications & alerts',
-      'Instant guest assistance & service call tracking',
-      'Live table status & order fulfillment status',
-      'Quick order adjustments & item punch-in',
-      'Direct kitchen & service bar coordination',
-      'Fast digital bill generation & checkout support'
-    ]
-  }
-];
-
-export const FEATURES_DATA = [
-  {
-    number: '01',
-    title: 'Smart Digital Menu',
-    description: 'Create beautiful, high-speed digital menus that customers can access instantly without installing any app.',
-    iconName: 'LayoutGrid',
-    highlight: 'Instant Browser Access',
-    detail: 'Rich categories, crisp imagery, and interactive search optimized for low-bandwidth mobile networks.'
-  },
-  {
-    number: '02',
-    title: 'Live Availability',
-    description: 'Mark dishes available or sold out in real-time to prevent customer disappointment and streamline kitchen workflow.',
-    iconName: 'ToggleRight',
-    highlight: '1-Tap Stock Toggle',
-    detail: 'When a dish runs out, mark it unavailable instantly from your phone or admin tablet.'
-  },
-  {
-    number: '03',
-    title: 'Instant Menu Updates',
-    description: 'Update prices, seasonal specials, and menu items instantly without reprinting paper menus ever again.',
-    iconName: 'RefreshCw',
-    highlight: 'Zero Re-printing Cost',
-    detail: 'Changes go live to all scanning guests within milliseconds across every table.'
-  },
-  {
-    number: '04',
-    title: 'Smart QR Management',
-    description: 'Generate and manage high-resolution vector QR codes for whole restaurants or specific individual tables.',
-    iconName: 'QrCode',
-    highlight: 'Table-Level Precision',
-    detail: 'Export print-ready QR files for acrylic stands, wood blocks, or metallic table stickers.'
-  },
-  {
-    number: '05',
-    title: 'Restaurant Dashboard',
-    description: 'Manage your entire digital menu catalog, prices, categories, and venue settings from one centralized dashboard.',
-    iconName: 'Sliders',
-    highlight: 'Unified Control Center',
-    detail: 'Multi-device access for managers, chefs, and front-of-house staff with granular role permissions.'
-  },
-  {
-    number: '06',
-    title: 'Customer Experience',
-    description: 'Give customers a blazing fast, intuitive, and mobile-first menu experience designed for high conversions.',
-    iconName: 'Sparkles',
-    highlight: 'Sub-second Load Speeds',
-    detail: 'Smooth gestures, category quick-scroll, and high-definition food presentation.'
-  },
-  {
-    number: '07',
-    title: 'Restaurant Analytics',
-    description: 'Understand customer menu interactions, most viewed dishes, peak scanning hours, and category popularities.',
-    iconName: 'TrendingUp',
-    highlight: 'Data-Driven Insights',
-    detail: 'Actionable data to help you optimize menu layout, highlight high-margin items, and boost order values.'
-  },
-  {
-    number: '08',
-    title: 'Restaurant Branding',
-    description: 'Create a customized digital menu experience that reflects your restaurant\'s unique identity and aesthetic.',
-    iconName: 'Palette',
-    highlight: 'Tailored Aesthetic',
-    detail: 'Custom accent colors, brand logo, hero covers, and custom dish tag styling.'
+      'No app download',
+      'Browse categories',
+      'Search menu',
+      'Food images',
+      'Descriptions',
+      'Prices',
+      'Availability',
+      'Latest menu updates'
+    ],
+    cta: 'See Customer Experience',
+    targetId: '#customer'
   }
 ];
 
 export const HOW_IT_WORKS_STEPS = [
   {
     step: '01',
-    title: 'Create Your Restaurant',
-    desc: 'Set up your Scanza account, upload your logo, define venue info, and configure your restaurant profile in minutes.',
-    iconName: 'Building2'
+    title: 'Restaurant Creates Menu',
+    desc: 'Restaurant admin adds categories, items, prices, images, and sets availability status.',
+    iconName: 'UtensilsCrossed',
+    details: ['Categories', 'Items', 'Prices', 'Images', 'Availability']
   },
   {
     step: '02',
-    title: 'Build Your Menu',
-    desc: 'Add categories, mouth-watering dishes, pricing, high-resolution food photography, and item availability status.',
-    iconName: 'UtensilsCrossed'
+    title: 'Generate QR',
+    desc: 'Restaurant generates a unique, high-resolution ScanzAA QR code.',
+    iconName: 'QrCode',
+    details: ['Vector QR', 'Branded Codes', 'High Resolution']
   },
   {
     step: '03',
-    title: 'Generate Your QR',
-    desc: 'Generate custom vector QR codes for your overall restaurant or specific table numbers with custom styling.',
-    iconName: 'QrCode'
+    title: 'Place QR on Table',
+    desc: 'The QR code is placed on the restaurant table using an acrylic stand.',
+    iconName: 'MapPin',
+    details: ['Acrylic Stands', 'Wooden Blocks', 'Table Precision']
   },
   {
     step: '04',
-    title: 'Place It on the Table',
-    desc: 'Print your high-quality QR codes and place them in sleek acrylic table stands, brass blocks, or table displays.',
-    iconName: 'MapPin'
+    title: 'Customer Scans',
+    desc: 'Customer scans the QR using their phone. No app installation required.',
+    iconName: 'ScanLine',
+    details: ['Zero App Required', 'Instant Camera Scan', 'Any Smartphone']
   },
   {
     step: '05',
-    title: 'Customer Scans',
-    desc: 'Guests arrive, sit down, and scan the table QR code using their standard smartphone camera app.',
-    iconName: 'ScanLine'
+    title: 'Digital Menu Opens',
+    desc: 'The current restaurant menu appears instantly in their mobile browser.',
+    iconName: 'Smartphone',
+    details: ['Sub-second Load', 'Live Prices', 'High-Res Dish Photos']
   },
   {
     step: '06',
-    title: 'Menu Appears',
-    desc: 'Your interactive, high-definition digital menu opens instantly in their mobile browser. No app required.',
-    iconName: 'CheckCircle2'
+    title: 'Service When Needed',
+    desc: 'Customers can access available service functionality through the Waiter Portal workflow.',
+    iconName: 'ConciergeBell',
+    details: ['Call Waiter', 'Water Requests', 'Bill Assistance']
+  }
+];
+
+export const PREMIUM_FEATURES = [
+  {
+    id: '01',
+    number: '01',
+    title: 'Advanced Menu Analytics',
+    description: 'Understand menu engagement and identify your most interacted-with dishes.',
+    category: 'Analytics',
+    previewData: {
+      chart: [45, 62, 78, 56, 89, 94],
+      metric: 'Top Dish: Truffle Risotto (412 views)',
+      rate: '+28.4% engagement'
+    }
+  },
+  {
+    id: '02',
+    number: '02',
+    title: 'Live Table Management',
+    description: 'Monitor table activity and service requests in real time.',
+    category: 'Operations',
+    previewData: {
+      metric: '18 Active Tables | 4 Requests',
+      rate: 'Avg response: 1m 45s'
+    }
+  },
+  {
+    id: '03',
+    number: '03',
+    title: 'Advanced QR Analytics',
+    description: 'Track QR scans and understand customer menu engagement.',
+    category: 'Intelligence',
+    previewData: {
+      metric: '1,420 Scans This Week',
+      rate: 'Peak: 8:30 PM - 10:00 PM'
+    }
+  },
+  {
+    id: '04',
+    number: '04',
+    title: 'Multi-Branch Management',
+    description: 'Manage multiple restaurant locations from one centralized account.',
+    category: 'Enterprise',
+    previewData: {
+      metric: '3 Outlets Synced',
+      rate: 'Downtown, Uptown, Beachside'
+    }
+  },
+  {
+    id: '05',
+    number: '05',
+    title: 'Smart Waiter Assignment',
+    description: 'Automatically assign customer service requests based on waiter availability.',
+    category: 'Automation',
+    previewData: {
+      metric: 'Auto-Routing Active',
+      rate: 'Zero missed table calls'
+    }
+  },
+  {
+    id: '06',
+    number: '06',
+    title: 'Waiter Performance',
+    description: 'Track service activity and completed requests across your team.',
+    category: 'Team Insights',
+    previewData: {
+      metric: '98% On-Time Delivery',
+      rate: 'Leader: Arjun (48 fulfilled)'
+    }
+  },
+  {
+    id: '07',
+    number: '07',
+    title: 'Priority Service Requests',
+    description: 'Highlight urgent table requests so your team can respond faster.',
+    category: 'Floor Priority',
+    previewData: {
+      metric: 'Urgent: Table #12 Bill Req',
+      rate: 'Flashing LED alerts'
+    }
+  },
+  {
+    id: '08',
+    number: '08',
+    title: 'Advanced Restaurant Branding',
+    description: 'Customize the digital menu experience to match your restaurant identity.',
+    category: 'Styling',
+    previewData: {
+      metric: 'Custom CSS & Font Theme',
+      rate: 'Tailored Luxury Palette'
+    }
   }
 ];
 
@@ -159,25 +210,25 @@ export const SERVICE_CARDS = [
   {
     id: '01',
     title: 'DIGITAL MENU SETUP',
-    description: 'We assist your culinary team in digitizing your complete menu, structuring categories, and optimizing food photography.',
+    description: 'Set up your restaurant\'s digital menu and get your QR experience ready.',
     iconName: 'FileCheck'
   },
   {
     id: '02',
     title: 'QR TABLE SETUP',
-    description: 'Get custom-branded, QR-ready acrylic or wooden table displays delivered directly to your venue, ready to place on tables.',
+    description: 'Get QR-ready table displays designed for your restaurant.',
     iconName: 'Maximize2'
   },
   {
     id: '03',
     title: 'MENU MANAGEMENT',
-    description: 'Dedicated support to keep your digital menu continuously updated with seasonal items, price changes, and daily specials.',
+    description: 'Keep your restaurant menu organized and up to date.',
     iconName: 'Headphones'
   },
   {
     id: '04',
-    title: 'BRANDED EXPERIENCE',
-    description: 'Tailored digital menu interfaces custom-styled to match your luxury venue\'s brand colors, typography, and atmosphere.',
+    title: 'RESTAURANT DIGITAL EXPERIENCE',
+    description: 'Create a modern customer experience from table to menu.',
     iconName: 'Sparkles'
   }
 ];
@@ -207,70 +258,80 @@ export const DEMO_MENU_ITEMS = [
     id: 3,
     name: 'Paneer Tikka Angara',
     category: 'Starters',
-    price: '₹340',
+    price: '₹180',
     description: 'Charcoal-smoked cottage cheese cubes marinated in Kashmiri chili, hung curd, and aromatic Indian spices.',
     available: true,
-    tag: 'Spicy',
+    tag: 'Available',
     image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 4,
-    name: 'Smoked Mutton Dum Biryani',
-    category: 'Main Course',
-    price: '₹620',
-    description: 'Slow-cooked tender mutton layered with fragrant long-grain basmati rice, saffron, and fried onions.',
+    name: 'Chicken Biryani',
+    category: 'Biryani',
+    price: '₹220',
+    description: 'Aromatic basmati rice layered with succulent spiced chicken cuts, saffron broth, and caramelized onions.',
+    available: true,
+    tag: 'Popular',
+    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=600'
+  },
+  {
+    id: 5,
+    name: 'Mutton Biryani',
+    category: 'Biryani',
+    price: '₹280',
+    description: 'Slow-cooked tender mutton layered with fragrant long-grain basmati rice and royal ground spices.',
     available: false,
     tag: 'Sold Out',
     image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=600'
   },
   {
-    id: 5,
+    id: 6,
     name: 'Artisanal Turquoise Mojito',
-    category: 'Artisanal Drinks',
-    price: '₹280',
+    category: 'Beverages',
+    price: '₹160',
     description: 'Fresh blue curacao, kaffir lime leaves, crushed mint, sparkling soda, and silver glitter rim.',
     available: true,
     tag: 'Signature',
     image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=600'
   },
   {
-    id: 6,
+    id: 7,
     name: 'Molten Belgian Chocolate Sphere',
     category: 'Desserts',
-    price: '₹390',
+    price: '₹290',
     description: '70% dark Belgian chocolate shell filled with hazelnut mousse, poured over with hot espresso caramel sauce.',
     available: true,
-    tag: 'Popular',
+    tag: 'Dessert Special',
     image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=600'
   }
 ];
 
 export const FOOTER_LINKS = {
   column1: {
-    title: 'Scanza',
+    title: 'SCanzAA',
     links: [
-      { name: 'About Scanza', href: '#brand' },
+      { name: 'About', href: '#brand' },
       { name: 'Our Story', href: '#brand' },
-      { name: 'Careers', href: '#contact' },
-      { name: 'Contact Us', href: '#contact' }
+      { name: 'Contact', href: '#contact' },
+      { name: 'Careers', href: '#contact' }
     ]
   },
   column2: {
     title: 'For Restaurants',
     links: [
-      { name: 'Partner With Us', href: '#contact' },
-      { name: 'Restaurant Portal', href: '#admin' },
-      { name: 'Menu Management', href: '#features' },
+      { name: 'Restaurant Admin', href: '#admin' },
+      { name: 'Waiter Portal', href: '#waiter' },
+      { name: 'Digital Menu', href: '#customer' },
       { name: 'QR Services', href: '#services' }
     ]
   },
   column3: {
     title: 'Platform',
     links: [
-      { name: 'Core Features', href: '#features' },
-      { name: 'Restaurant Admin', href: '#admin' },
-      { name: 'Customer Experience', href: '#customer' },
-      { name: 'Waiter Portal', href: '#ecosystem' }
+      { name: 'Features', href: '#ecosystem' },
+      { name: 'How It Works', href: '#how-it-works' },
+      { name: 'Premium', href: '#premium' },
+      { name: 'Solutions', href: '#admin' }
     ]
   },
   column4: {

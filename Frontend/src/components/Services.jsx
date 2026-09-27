@@ -52,18 +52,18 @@ export default function Services({ onOpenContact }) {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00D2C4]/10 border border-[#00D2C4]/30 text-[#00D2C4] text-xs font-semibold uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>White-Glove Support</span>
+            <span>Dedicated Deployment</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
             Built Around <span className="gradient-text-turquoise">Your Restaurant.</span>
           </h2>
           <p className="text-base sm:text-lg text-[#8B9696] leading-relaxed">
-            From initial menu digitization to custom acrylic QR table stands, Scanza handles end-to-end service deployment.
+            From initial menu digitization to custom QR table setups, ScanzAA handles your complete restaurant onboarding.
           </p>
         </div>
 
         {/* 4 Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICE_CARDS.map((service, index) => {
             const IconComp = iconMap[service.iconName] || FileCheck;
 
@@ -71,10 +71,10 @@ export default function Services({ onOpenContact }) {
               <div
                 key={service.id}
                 ref={(el) => (cardsRef.current[index] = el)}
-                className="group glass-card rounded-3xl p-8 border border-[#00D2C4]/15 hover:border-[#00D2C4]/50 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between"
+                className="group glass-card rounded-3xl p-7 border border-white/[0.08] hover:border-[#00D2C4]/50 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#00D2C4]/10 border border-[#00D2C4]/30 flex items-center justify-center text-[#00D2C4] mb-6 group-hover:bg-[#00D2C4] group-hover:text-[#050808] transition-all duration-300">
+                  <div className="w-12 h-12 rounded-2xl bg-[#00D2C4]/10 border border-[#00D2C4]/30 flex items-center justify-center text-[#00D2C4] mb-6 group-hover:bg-[#00D2C4] group-hover:text-[#050808] transition-all duration-300 shadow-md">
                     <IconComp className="w-6 h-6" />
                   </div>
 
@@ -86,24 +86,24 @@ export default function Services({ onOpenContact }) {
                     {service.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#8B9696] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#8B9696] leading-relaxed mb-6">
                     "{service.description}"
                   </p>
+                </div>
+
+                {/* Contact Us Action on each card */}
+                <div className="pt-4 border-t border-white/10">
+                  <button
+                    onClick={onOpenContact}
+                    className="w-full text-left flex items-center justify-between text-xs font-semibold text-[#00D2C4] group-hover:text-[#80FFF5] transition-colors py-1"
+                  >
+                    <span>Contact Us</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </button>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* CTA Banner */}
-        <div className="text-center">
-          <button
-            onClick={onOpenContact}
-            className="px-8 py-4 rounded-full bg-[#00D2C4] text-[#050808] font-bold text-sm hover:bg-[#80FFF5] transition-all inline-flex items-center gap-2 glow-turquoise"
-          >
-            <span>Talk to Scanza</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ArrowRight, QrCode, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -12,7 +12,7 @@ export default function CTA({ onOpenContact }) {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(contentRef.current,
-        { opacity: 0, scale: 0.95, y: 30 },
+        { opacity: 0, scale: 0.96, y: 30 },
         {
           opacity: 1,
           scale: 1,
@@ -37,7 +37,7 @@ export default function CTA({ onOpenContact }) {
       className="relative w-full bg-[#050808] py-32 px-6 overflow-hidden border-b border-white/[0.05]"
     >
       {/* Ambient Video / Image Background Overlay */}
-      <div className="absolute inset-0 z-0 opacity-20">
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <img
           src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1600"
           alt="Restaurant ambience"
@@ -51,19 +51,19 @@ export default function CTA({ onOpenContact }) {
 
       <div className="relative z-10 max-w-4xl mx-auto text-center" ref={contentRef}>
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-[#00D2C4]/30 backdrop-blur-md mb-8">
-          <QrCode className="w-4 h-4 text-[#00D2C4]" />
+          <Sparkles className="w-4 h-4 text-[#00D2C4]" />
           <span className="text-xs font-semibold tracking-wider text-[#00D2C4] uppercase">
-            Deploy Scanza Today
+            Deploy ScanzAA Today
           </span>
         </div>
 
         <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight mb-6">
-          Ready to Make Every Table <br />
-          <span className="gradient-text-turquoise">Smarter?</span>
+          Make Every Table <br />
+          <span className="gradient-text-turquoise">Smarter.</span>
         </h2>
 
         <p className="text-base sm:text-xl text-[#8B9696] max-w-2xl mx-auto leading-relaxed mb-10">
-          Bring your restaurant menu into a faster, cleaner digital experience with Scanza.
+          Bring your restaurant menu and service experience into one connected platform.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -71,15 +71,16 @@ export default function CTA({ onOpenContact }) {
             onClick={onOpenContact}
             className="w-full sm:w-auto px-9 py-4 rounded-full bg-[#00D2C4] text-[#050808] font-bold text-sm tracking-wide hover:bg-[#80FFF5] transition-all duration-300 shadow-[0_0_35px_rgba(0,210,196,0.4)] flex items-center justify-center gap-2 group glow-turquoise"
           >
-            <span>Contact Scanza</span>
+            <span>Contact ScanzAA</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
 
           <a
-            href="#features"
+            href="#premium"
             className="w-full sm:w-auto px-9 py-4 rounded-full bg-white/5 border border-white/15 text-white font-medium text-sm hover:bg-white/10 hover:border-[#00D2C4]/40 transition-all duration-300 backdrop-blur-md flex items-center justify-center gap-2"
           >
-            <span>Explore Features</span>
+            <span>Explore Premium</span>
+            <ArrowRight className="w-4 h-4" />
           </a>
         </div>
       </div>
