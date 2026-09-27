@@ -59,6 +59,10 @@ export default function Footer({ onOpenContact }) {
             <p className="text-xs sm:text-sm text-[#8B9696] max-w-sm mt-3 leading-relaxed">
               The premier digital menu and table-service platform for modern restaurants.
             </p>
+            <div className="mt-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs text-[#8B9696]">
+              <span>Powered by</span>
+              <span className="font-semibold text-[#00D2C4] tracking-wide">Renza</span>
+            </div>
           </div>
 
           <div>
@@ -163,8 +167,12 @@ export default function Footer({ onOpenContact }) {
 
         {/* Bottom Bar Divider & Copyright */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8B9696]">
-          <div>
-            © 2026 ScanzAA. All rights reserved.
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+            <span>© 2026 ScanzAA. All rights reserved.</span>
+            <span className="hidden sm:inline text-white/20">•</span>
+            <span>
+              Powered by <span className="font-semibold text-[#00D2C4]">Renza</span>
+            </span>
           </div>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

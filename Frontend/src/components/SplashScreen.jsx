@@ -7,6 +7,7 @@ export default function SplashScreen({ onFinish }) {
   const bgImgRef = useRef(null);
   const glowRef = useRef(null);
   const logoBoxRef = useRef(null);
+  const poweredRef = useRef(null);
 
   useEffect(() => {
     // 1. Lock scrolling during splash intro
@@ -36,6 +37,9 @@ export default function SplashScreen({ onFinish }) {
 
       // Initial States
       gsap.set(logoBoxRef.current, { opacity: 0, scale: 0.75, y: 25 });
+      if (poweredRef.current) {
+        gsap.set(poweredRef.current, { opacity: 0, y: 15 });
+      }
       gsap.set(glowRef.current, { opacity: 0, scale: 0.7 });
       gsap.set(containerRef.current, { clipPath: 'circle(150% at 50% 50%)' });
       if (bgImgRef.current) {
@@ -68,6 +72,16 @@ export default function SplashScreen({ onFinish }) {
         ease: 'power3.out'
       }, 0.2);
 
+      // 0.40s: "Powered by Renza" appears smoothly
+      if (poweredRef.current) {
+        tl.to(poweredRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out'
+        }, 0.4);
+      }
+
       // 0.80s: Turquoise Brand Activation Glow
       tl.to(glowRef.current, {
         opacity: 0.55,
@@ -85,6 +99,16 @@ export default function SplashScreen({ onFinish }) {
 
       // 2.00s: Brand Hold
       tl.to({}, { duration: 1.5 }, 2.0);
+
+      // 3.15s: "Powered by Renza" dissolves before the logo flies to navbar
+      if (poweredRef.current) {
+        tl.to(poweredRef.current, {
+          opacity: 0,
+          y: -10,
+          duration: 0.35,
+          ease: 'power2.in'
+        }, 3.15);
+      }
 
       // 3.50s - 4.50s: Drive Animation to Top-Left Navbar Position & Video Reveal
       tl.to(logoBoxRef.current, {
@@ -145,6 +169,15 @@ export default function SplashScreen({ onFinish }) {
           taglineText="SCAN  DISCOVER  DINE"
           className="filter drop-shadow-[0_0_40px_rgba(0,210,196,0.5)]"
         />
+        <div
+          ref={poweredRef}
+          className="mt-6 flex items-center gap-1.5 text-xs sm:text-sm font-medium tracking-[0.25em] text-[#8B9696] uppercase"
+        >
+          <span>Powered by</span>
+          <span className="font-bold text-[#00D2C4] tracking-[0.3em] drop-shadow-[0_0_12px_rgba(0,210,196,0.4)]">
+            Renza
+          </span>
+        </div>
       </div>
     </div>
   );
