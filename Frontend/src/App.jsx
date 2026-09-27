@@ -1,24 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import SplashScreen from './components/SplashScreen';
 import AnimatedBackground from './components/AnimatedBackground';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import BrandStatement from './components/BrandStatement';
-import Ecosystem from './components/Ecosystem';
-import HowItWorks from './components/HowItWorks';
-import RestaurantDashboard from './components/RestaurantDashboard';
-import WaiterPortal from './components/WaiterPortal';
-import CustomerExperience from './components/CustomerExperience';
-import PremiumFeatures from './components/PremiumFeatures';
-import PremiumCTA from './components/PremiumCTA';
-import Services from './components/Services';
-import CTA from './components/CTA';
-import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
 
-export default function App() {
-  const [splashFinished, setSplashFinished] = useState(false);
+// Pages
+import HomePage from './pages/HomePage';
+import RestaurantPage from './pages/RestaurantPage';
+import WaiterPage from './pages/WaiterPage';
+import CustomerPage from './pages/CustomerPage';
+
+// Scroll to top helper on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+// Layout wrapper to conditionally show global navbar on home page
+function AppContent() {
   const [contactModalOpen, setContactModalOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   const handleOpenContact = () => {
     setContactModalOpen(true);
@@ -27,6 +35,32 @@ export default function App() {
   const handleCloseContact = () => {
     setContactModalOpen(false);
   };
+
+  return (
+    <>
+      <ScrollToTop />
+
+      {/* Global Navigation Bar on Home Page */}
+      {isHomePage && <Navbar onOpenContact={handleOpenContact} />}
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<HomePage onOpenContact={handleOpenContact} />} />
+        <Route path="/restaurant" element={<RestaurantPage />} />
+        <Route path="/waiter" element={<WaiterPage />} />
+        <Route path="/customer" element={<CustomerPage />} />
+        {/* Fallback to Home */}
+        <Route path="*" element={<HomePage onOpenContact={handleOpenContact} />} />
+      </Routes>
+
+      {/* Global Contact Inquiry Modal */}
+      <ContactModal isOpen={contactModalOpen} onClose={handleCloseContact} />
+    </>
+  );
+}
+
+export default function App() {
+  const [splashFinished, setSplashFinished] = useState(false);
 
   return (
     <div className="bg-[#050808] min-h-screen text-white font-poppins antialiased selection:bg-[#00D2C4] selection:text-[#050808] relative overflow-x-hidden">
@@ -38,47 +72,10 @@ export default function App() {
       {/* 2. Continuous Animated Ambient Background */}
       <AnimatedBackground />
 
-      {/* 3. Navigation Bar */}
-      <Navbar onOpenContact={handleOpenContact} />
-
-      {/* 4. Fullscreen Video Hero Section */}
-      <Hero onOpenContact={handleOpenContact} />
-
-      {/* 5. Section 01: Brand Statement */}
-      <BrandStatement />
-
-      {/* 6. Section 02: The ScanzAA Ecosystem (Restaurant Admin, Waiter Portal, Customer Scan View) */}
-      <Ecosystem />
-
-      {/* 7. Section 03: How ScanzAA Works (Table to Service in Seconds) */}
-      <HowItWorks />
-
-      {/* 8. Section 04: Restaurant Admin Dashboard Mockup */}
-      <RestaurantDashboard />
-
-      {/* 9. Section 05: Dedicated Waiter Portal Section */}
-      <WaiterPortal />
-
-      {/* 10. Section 06: Customer Scan View (Phone + QR Stand Flow) */}
-      <CustomerExperience />
-
-      {/* 11. Section 07: Unlock More With Premium (Locked & Blurred Features) */}
-      <PremiumFeatures onOpenContact={handleOpenContact} />
-
-      {/* 12. Section 08: Premium CTA */}
-      <PremiumCTA onOpenContact={handleOpenContact} />
-
-      {/* 13. Section 09: Restaurant Services (White-Glove Setup) */}
-      <Services onOpenContact={handleOpenContact} />
-
-      {/* 14. Final CTA: Make Every Table Smarter */}
-      <CTA onOpenContact={handleOpenContact} />
-
-      {/* 15. Premium Footer */}
-      <Footer onOpenContact={handleOpenContact} />
-
-      {/* 16. Interactive Contact Inquiry Modal */}
-      <ContactModal isOpen={contactModalOpen} onClose={handleCloseContact} />
+      {/* 3. React Router App Content */}
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
     </div>
   );
 }

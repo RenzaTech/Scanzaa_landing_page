@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { ECOSYSTEM_DATA } from '../data/scanzaData';
 import { LayoutDashboard, ConciergeBell, ScanLine, Check, Sparkles, ArrowUpRight } from 'lucide-react';
 import gsap from 'gsap';
@@ -126,10 +127,10 @@ export default function Ecosystem() {
 
                 {/* Footer Action */}
                 <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-[#00D2C4] group-hover:text-[#80FFF5] transition-colors">
-                  <a href={card.targetId} className="flex items-center gap-1.5 group-hover:underline">
+                  <Link to={card.targetPath || card.targetId} className="flex items-center gap-1.5 group-hover:underline">
                     <span>{card.cta}</span>
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             );

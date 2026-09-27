@@ -26,7 +26,7 @@ export const ECOSYSTEM_DATA = [
       'Menu analytics'
     ],
     cta: 'Explore Restaurant Admin',
-    targetId: '#admin'
+    targetPath: '/restaurant'
   },
   {
     id: '02',
@@ -45,7 +45,7 @@ export const ECOSYSTEM_DATA = [
       'Real-time updates'
     ],
     cta: 'Explore Waiter Portal',
-    targetId: '#waiter'
+    targetPath: '/waiter'
   },
   {
     id: '03',
@@ -65,7 +65,7 @@ export const ECOSYSTEM_DATA = [
       'Latest menu updates'
     ],
     cta: 'See Customer Experience',
-    targetId: '#customer'
+    targetPath: '/customer'
   }
 ];
 
@@ -118,90 +118,80 @@ export const PREMIUM_FEATURES = [
   {
     id: '01',
     number: '01',
-    title: 'Advanced Menu Analytics',
-    description: 'Understand menu engagement and identify your most interacted-with dishes.',
-    category: 'Analytics',
+    title: 'AI Integration',
+    category: 'Intelligence',
+    badge: 'AI Powered',
+    description: 'Intelligent dish pairings and smart dietary taste profiles driving higher dining check sizes.',
+    features: [
+      'AI-powered food recommendations',
+      'Personalized recommendations'
+    ],
     previewData: {
-      chart: [45, 62, 78, 56, 89, 94],
-      metric: 'Top Dish: Truffle Risotto (412 views)',
-      rate: '+28.4% engagement'
+      badge: 'Neural Taste Engine',
+      metric: 'Suggested: Truffle Pairing + Mocktail',
+      rate: '+34% Upsell Conversion'
     }
   },
   {
     id: '02',
     number: '02',
-    title: 'Live Table Management',
-    description: 'Monitor table activity and service requests in real time.',
-    category: 'Operations',
+    title: 'Order Food + Bill',
+    category: 'Ordering & Billing',
+    badge: 'Direct Ordering',
+    description: 'Seamless digital ordering from table to kitchen with real-time status and instant billing.',
+    features: [
+      'Add food to cart',
+      'Dine-in / takeaway ordering',
+      'Real-time order status',
+      'Automatic bill generation'
+    ],
     previewData: {
-      metric: '18 Active Tables | 4 Requests',
-      rate: 'Avg response: 1m 45s'
+      badge: 'Live Cart #08',
+      metric: '3 Items • ₹980 • Bill Generated',
+      rate: 'Zero Order Delay'
     }
   },
   {
     id: '03',
     number: '03',
-    title: 'Advanced QR Analytics',
-    description: 'Track QR scans and understand customer menu engagement.',
-    category: 'Intelligence',
+    title: 'Food Customisation',
+    category: 'Kitchen Prep',
+    badge: 'Guest Preferences',
+    description: 'Allow diners to configure dishes to their exact palate, allergies, and dietary lifestyle.',
+    features: [
+      'Spice level selection',
+      'Add/remove ingredients',
+      'Portion selection',
+      'Extra toppings/add-ons',
+      'Special instructions',
+      'Dietary preferences'
+    ],
     previewData: {
-      metric: '1,420 Scans This Week',
-      rate: 'Peak: 8:30 PM - 10:00 PM'
+      badge: 'Recipe Modifier',
+      metric: 'Medium Spicy • No Onion • Extra Cheese',
+      rate: '100% Kitchen Accuracy'
     }
   },
   {
     id: '04',
     number: '04',
-    title: 'Multi-Branch Management',
-    description: 'Manage multiple restaurant locations from one centralized account.',
-    category: 'Enterprise',
+    title: 'Waiter Page',
+    category: 'Floor Operations',
+    badge: 'Staff Mobility',
+    description: 'Empower floor staff with complete mobile control over tables, custom orders, and live billing.',
+    features: [
+      'Waiter login & assigned tables',
+      'View table status & active calls',
+      'Take customer orders & modify',
+      'Send orders to kitchen (KOT)',
+      'Track order status & add items',
+      'Request bill & mark table available',
+      'Receive instant customer requests'
+    ],
     previewData: {
-      metric: '3 Outlets Synced',
-      rate: 'Downtown, Uptown, Beachside'
-    }
-  },
-  {
-    id: '05',
-    number: '05',
-    title: 'Smart Waiter Assignment',
-    description: 'Automatically assign customer service requests based on waiter availability.',
-    category: 'Automation',
-    previewData: {
-      metric: 'Auto-Routing Active',
-      rate: 'Zero missed table calls'
-    }
-  },
-  {
-    id: '06',
-    number: '06',
-    title: 'Waiter Performance',
-    description: 'Track service activity and completed requests across your team.',
-    category: 'Team Insights',
-    previewData: {
-      metric: '98% On-Time Delivery',
-      rate: 'Leader: Arjun (48 fulfilled)'
-    }
-  },
-  {
-    id: '07',
-    number: '07',
-    title: 'Priority Service Requests',
-    description: 'Highlight urgent table requests so your team can respond faster.',
-    category: 'Floor Priority',
-    previewData: {
-      metric: 'Urgent: Table #12 Bill Req',
-      rate: 'Flashing LED alerts'
-    }
-  },
-  {
-    id: '08',
-    number: '08',
-    title: 'Advanced Restaurant Branding',
-    description: 'Customize the digital menu experience to match your restaurant identity.',
-    category: 'Styling',
-    previewData: {
-      metric: 'Custom CSS & Font Theme',
-      rate: 'Tailored Luxury Palette'
+      badge: 'Floor Captain Active',
+      metric: 'Table #14 Served • KOT Dispatched',
+      rate: 'Under 90s Turnaround'
     }
   }
 ];
