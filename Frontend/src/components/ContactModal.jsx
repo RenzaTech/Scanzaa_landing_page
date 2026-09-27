@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, CheckCircle2, Sparkles, Send } from 'lucide-react';
+import { X, CheckCircle2, Send } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export default function ContactModal({ isOpen, onClose }) {
@@ -59,23 +59,19 @@ export default function ContactModal({ isOpen, onClose }) {
             </div>
             <h3 className="text-2xl font-bold text-white">Request Submitted!</h3>
             <p className="text-[#8B9696] max-w-md mx-auto text-sm leading-relaxed">
-              Thank you for expressing interest in Scanza! Our restaurant tech deployment team will reach out to <span className="text-[#00D2C4] font-medium">{formData.phone || 'your phone'}</span> within 24 hours.
+              Thank you for expressing interest in ScanzAA! Our restaurant tech deployment team will reach out to <span className="text-[#00D2C4] font-medium">{formData.phone || 'your phone'}</span> within 24 hours.
             </p>
             <div className="pt-4">
               <button
                 onClick={handleReset}
                 className="px-6 py-3 rounded-full bg-[#00D2C4] text-[#050808] font-semibold text-sm hover:bg-[#80FFF5] transition-all glow-turquoise"
               >
-                Back to Scanza
+                Back to ScanzAA
               </button>
             </div>
           </div>
         ) : (
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-4 h-4 text-[#00D2C4]" />
-              <span className="text-xs font-semibold tracking-wider text-[#00D2C4] uppercase">Partner With ScanzAA</span>
-            </div>
             <h3 className="text-2xl font-bold text-white mb-2">Transform Your Tables</h3>
             <p className="text-sm text-[#8B9696] mb-6">
               Get in touch with our team to set up your restaurant's digital menu infrastructure.
