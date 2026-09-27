@@ -91,13 +91,8 @@ export default function CustomerExperience() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00D2C4]/10 border border-[#00D2C4]/30 text-[#00D2C4] text-xs font-semibold uppercase tracking-wider mb-4">
-            <Smartphone className="w-3.5 h-3.5" />
-            <span>Customer Scan View</span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
-            One Scan. <br />
-            <span className="gradient-text-turquoise">Instant Menu.</span>
+            Customer <span className="gradient-text-turquoise">Scan View.</span>
           </h2>
           <p className="text-base sm:text-lg text-[#8B9696] leading-relaxed">
             Customers simply scan the QR code on their table and instantly access the restaurant's digital menu in their browser.

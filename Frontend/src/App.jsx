@@ -7,9 +7,6 @@ import ContactModal from './components/ContactModal';
 
 // Pages
 import HomePage from './pages/HomePage';
-import RestaurantPage from './pages/RestaurantPage';
-import WaiterPage from './pages/WaiterPage';
-import CustomerPage from './pages/CustomerPage';
 
 // Scroll to top helper on route change
 function ScrollToTop() {
@@ -22,11 +19,9 @@ function ScrollToTop() {
   return null;
 }
 
-// Layout wrapper to conditionally show global navbar on home page
+// Layout wrapper to show global navbar
 function AppContent() {
   const [contactModalOpen, setContactModalOpen] = useState(false);
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
 
   const handleOpenContact = () => {
     setContactModalOpen(true);
@@ -40,15 +35,12 @@ function AppContent() {
     <>
       <ScrollToTop />
 
-      {/* Global Navigation Bar on Home Page */}
-      {isHomePage && <Navbar onOpenContact={handleOpenContact} />}
+      {/* Global Navigation Bar */}
+      <Navbar onOpenContact={handleOpenContact} />
 
       {/* Routes */}
       <Routes>
         <Route path="/" element={<HomePage onOpenContact={handleOpenContact} />} />
-        <Route path="/restaurant" element={<RestaurantPage />} />
-        <Route path="/waiter" element={<WaiterPage />} />
-        <Route path="/customer" element={<CustomerPage />} />
         {/* Fallback to Home */}
         <Route path="*" element={<HomePage onOpenContact={handleOpenContact} />} />
       </Routes>

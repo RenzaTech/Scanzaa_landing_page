@@ -18,19 +18,19 @@ export default function HomePage({ onOpenContact }) {
       {/* 2. Section 01: Brand Statement */}
       <BrandStatement />
 
-      {/* 3. Section 02: The ScanzAA Ecosystem (Restaurant Admin, Waiter Portal, Customer Scan View cards) */}
+      {/* 3. Section 02: The ScanzAA Ecosystem (Restaurant, Waiter, Customer cards) */}
       <Ecosystem />
 
-      {/* 4. Section 03: How ScanzAA Works (Table to Service in Seconds) */}
+      {/* 4. Section 03: How ScanzAA Works */}
       <HowItWorks />
 
-      {/* 5. Section 07: Unlock More With Premium (Locked & Blurred Features) */}
+      {/* 5. Section 04: Premium Features */}
       <PremiumFeatures onOpenContact={onOpenContact} />
 
-      {/* 6. Section 08: Premium CTA */}
+      {/* 6. Section 05: Premium CTA */}
       <PremiumCTA onOpenContact={onOpenContact} />
 
-      {/* 7. Section 09: Restaurant Services (White-Glove Setup) */}
+      {/* 7. Section 06: Services */}
       <Services onOpenContact={onOpenContact} />
 
       {/* 8. Final CTA: Make Every Table Smarter */}

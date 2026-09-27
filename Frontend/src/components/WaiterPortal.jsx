@@ -95,13 +95,8 @@ export default function WaiterPortal() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00D2C4]/10 border border-[#00D2C4]/30 text-[#00D2C4] text-xs font-semibold uppercase tracking-wider mb-4">
-            <ConciergeBell className="w-3.5 h-3.5" />
-            <span>WAITER PORTAL</span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
-            Service Starts <br />
-            <span className="gradient-text-turquoise">at the Table.</span>
+            Waiter <span className="gradient-text-turquoise">Portal.</span>
           </h2>
           <p className="text-base sm:text-lg text-[#8B9696] leading-relaxed">
             Give your restaurant staff a simple workspace to respond to table requests and manage service activity.

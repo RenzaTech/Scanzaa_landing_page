@@ -1,14 +1,9 @@
-export const NAV_LINKS = [
-  { name: 'Home', href: '#hero' },
-  { name: 'Features', href: '#ecosystem' },
-  { name: 'How It Works', href: '#how-it-works' },
-  { name: 'Solutions', href: '#admin' },
-  { name: 'Premium', href: '#premium' }
-];
+export const NAV_LINKS = [];
 
 export const ECOSYSTEM_DATA = [
   {
     id: '01',
+    name: 'Restaurant',
     title: 'Restaurant Admin',
     subtitle: 'For Restaurant Owners & Managers',
     description: 'Manage your restaurant\'s digital menu, QR codes and restaurant information from one centralized dashboard.',
@@ -30,6 +25,7 @@ export const ECOSYSTEM_DATA = [
   },
   {
     id: '02',
+    name: 'Waiter',
     title: 'Waiter Portal',
     subtitle: 'For Floor Staff & Captains',
     description: 'Give restaurant staff a dedicated workspace to manage tables, customer requests and service activity.',
@@ -49,6 +45,7 @@ export const ECOSYSTEM_DATA = [
   },
   {
     id: '03',
+    name: 'Customer',
     title: 'Customer Scan View',
     subtitle: 'For Restaurant Guests',
     description: 'Customers simply scan the QR code on their table and instantly access the restaurant\'s digital menu.',
@@ -309,19 +306,19 @@ export const FOOTER_LINKS = {
   column2: {
     title: 'For Restaurants',
     links: [
-      { name: 'Restaurant Admin', href: '#admin' },
-      { name: 'Waiter Portal', href: '#waiter' },
-      { name: 'Digital Menu', href: '#customer' },
-      { name: 'QR Services', href: '#services' }
+      { name: 'Restaurant Admin', href: '#ecosystem' },
+      { name: 'Waiter Portal', href: '#ecosystem' },
+      { name: 'Customer Scan View', href: '#ecosystem' },
+      { name: 'Contact Us', href: '#contact' }
     ]
   },
   column3: {
     title: 'Platform',
     links: [
-      { name: 'Features', href: '#ecosystem' },
+      { name: 'Platforms Overview', href: '#ecosystem' },
       { name: 'How It Works', href: '#how-it-works' },
-      { name: 'Premium', href: '#premium' },
-      { name: 'Solutions', href: '#admin' }
+      { name: 'Premium Suite', href: '#premium' },
+      { name: 'Dedicated Deployment', href: '#contact' }
     ]
   },
   column4: {

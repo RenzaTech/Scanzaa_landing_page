@@ -41,15 +41,9 @@ export default function PremiumCTA({ onOpenContact }) {
         <div className="glass-panel rounded-3xl p-10 sm:p-16 border border-[#00D2C4]/30 text-center relative overflow-hidden shadow-2xl">
           {/* Subtle Corner Ambient */}
           <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#00D2C4]/20 rounded-full blur-3xl pointer-events-none" />
-          
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00D2C4]/10 border border-[#00D2C4]/30 text-[#00D2C4] text-xs font-semibold uppercase tracking-wider mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Scale With ScanzAA</span>
-          </div>
 
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
-            Ready to Unlock the Full <br />
-            <span className="gradient-text-turquoise">ScanzAA Experience?</span>
+            Scale With <span className="gradient-text-turquoise">ScanzAA.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#8B9696] max-w-2xl mx-auto leading-relaxed mb-10">

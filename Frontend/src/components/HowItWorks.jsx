@@ -74,28 +74,12 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00D2C4]/10 border border-[#00D2C4]/30 text-[#00D2C4] text-xs font-semibold uppercase tracking-wider mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>How ScanzAA Works</span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
-            From Table to Service. <br />
-            <span className="gradient-text-turquoise">In Seconds.</span>
+            How ScanzAA <span className="gradient-text-turquoise">Works.</span>
           </h2>
           <p className="text-base sm:text-lg text-[#8B9696] leading-relaxed">
             Designed for instant adoption with zero friction for restaurant staff and dining guests.
           </p>
-        </div>
-
-        {/* Desktop Horizontal Process Timeline Progress Bar */}
-        <div className="hidden lg:block relative mb-12">
-          {/* Track line */}
-          <div className="h-[2px] w-full bg-white/10 rounded-full" />
-          {/* Animated fill line */}
-          <div 
-            ref={lineRef}
-            className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#00D2C4]/40 via-[#00D2C4] to-[#00D2C4] origin-left rounded-full glow-turquoise"
-          />
         </div>
 
         {/* 6 Steps Grid: Horizontal on Desktop, Vertical on Mobile */}

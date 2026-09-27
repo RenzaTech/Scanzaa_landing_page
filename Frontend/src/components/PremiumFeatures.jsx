@@ -43,13 +43,8 @@ export default function PremiumFeatures({ onOpenContact }) {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00D2C4]/10 border border-[#00D2C4]/30 text-[#00D2C4] text-xs font-semibold uppercase tracking-wider mb-4">
-            <LockKeyhole className="w-3.5 h-3.5 text-[#00D2C4]" />
-            <span>SCANZAA PREMIUM SUITE</span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
-            Unlock More <br />
-            <span className="gradient-text-turquoise">With Premium.</span>
+            ScanzAA <span className="gradient-text-turquoise">Premium Suite.</span>
           </h2>
           <p className="text-base sm:text-lg text-[#8B9696] leading-relaxed">
             Start with the essentials and unlock advanced restaurant capabilities as your business grows.
@@ -151,10 +146,7 @@ export default function PremiumFeatures({ onOpenContact }) {
 
                 {/* Middle: Feature Header Info */}
                 <div className="mb-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-bold text-[#8B9696] tracking-widest uppercase">
-                      CARD {feature.number}
-                    </span>
+                  <div className="flex items-center justify-end mb-2">
                     <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/70">
                       {feature.category}
                     </span>
@@ -186,17 +178,6 @@ export default function PremiumFeatures({ onOpenContact }) {
                     ))}
                   </div>
                 )}
-              </div>
-
-              {/* Bottom: Upgrade to Unlock Button */}
-              <div className="pt-4 border-t border-white/10 mt-auto">
-                <button
-                  onClick={onOpenContact}
-                  className="w-full py-2.5 px-4 rounded-xl bg-white/5 border border-[#00D2C4]/30 text-[#00D2C4] hover:bg-[#00D2C4] hover:text-[#050808] font-bold text-xs transition-all duration-300 flex items-center justify-center gap-1.5 shadow-md group-hover:border-[#00D2C4]"
-                >
-                  <LockKeyhole className="w-3.5 h-3.5" />
-                  <span>Upgrade to Unlock</span>
-                </button>
               </div>
             </div>
           ))}

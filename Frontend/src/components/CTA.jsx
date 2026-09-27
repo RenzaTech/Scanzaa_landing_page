@@ -50,13 +50,6 @@ export default function CTA({ onOpenContact }) {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#00D2C4]/20 rounded-full blur-[180px] pointer-events-none animate-pulse-glow" />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center" ref={contentRef}>
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-[#00D2C4]/30 backdrop-blur-md mb-8">
-          <Sparkles className="w-4 h-4 text-[#00D2C4]" />
-          <span className="text-xs font-semibold tracking-wider text-[#00D2C4] uppercase">
-            Deploy ScanzAA Today
-          </span>
-        </div>
-
         <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight mb-6">
           Make Every Table <br />
           <span className="gradient-text-turquoise">Smarter.</span>
