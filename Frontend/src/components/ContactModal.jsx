@@ -74,7 +74,7 @@ export default function ContactModal({ isOpen, onClose }) {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Sparkles className="w-4 h-4 text-[#00D2C4]" />
-              <span className="text-xs font-semibold tracking-wider text-[#00D2C4] uppercase">Partner With Scanza</span>
+              <span className="text-xs font-semibold tracking-wider text-[#00D2C4] uppercase">Partner With ScanzAA</span>
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">Transform Your Tables</h3>
             <p className="text-sm text-[#8B9696] mb-6">

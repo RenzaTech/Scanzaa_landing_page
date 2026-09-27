@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { SERVICE_CARDS } from '../data/scanzaData';
-import { FileCheck, Maximize2, Headphones, Sparkles, ArrowRight } from 'lucide-react';
+import { FileCheck, Maximize2, Headphones, Sparkles } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -82,20 +82,9 @@ export default function Services({ onOpenContact }) {
                     {service.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#8B9696] leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[#8B9696] leading-relaxed">
                     "{service.description}"
                   </p>
-                </div>
-
-                {/* Contact Us Action on each card */}
-                <div className="pt-4 border-t border-white/10">
-                  <button
-                    onClick={onOpenContact}
-                    className="w-full text-left flex items-center justify-between text-xs font-semibold text-[#00D2C4] group-hover:text-[#80FFF5] transition-colors py-1"
-                  >
-                    <span>Contact Us</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </button>
                 </div>
               </div>
             );

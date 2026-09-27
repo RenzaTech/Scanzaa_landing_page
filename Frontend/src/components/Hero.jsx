@@ -150,7 +150,7 @@ export default function Hero({ onOpenContact }) {
           ref={descriptionRef}
           className="text-sm sm:text-base md:text-lg text-[#8B9696] max-w-2xl font-normal leading-relaxed mb-8 drop-shadow"
         >
-          Scanza helps restaurants manage digital menus, generate QR codes and give customers instant access from their phones.
+          ScanzAA helps restaurants manage digital menus, generate QR codes and give customers instant access from their phones.
         </p>
 
         {/* CTA Buttons */}
@@ -162,15 +162,15 @@ export default function Hero({ onOpenContact }) {
             onClick={onOpenContact}
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#00D2C4] text-[#050808] font-bold text-sm tracking-wide hover:bg-[#80FFF5] transition-all duration-300 shadow-[0_0_35px_rgba(0,210,196,0.4)] flex items-center justify-center gap-2 group glow-turquoise"
           >
-            <span>Contact Scanza</span>
+            <span>Contact ScanzAA</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
 
           <a
-            href="#features"
+            href="#ecosystem"
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/20 text-white font-medium text-sm hover:bg-white/10 hover:border-[#00D2C4]/40 transition-all duration-300 backdrop-blur-md flex items-center justify-center gap-2"
           >
-            <span>Explore Scanza</span>
+            <span>Explore ScanzAA</span>
           </a>
         </div>
       </div>
