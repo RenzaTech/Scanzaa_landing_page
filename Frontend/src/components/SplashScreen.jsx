@@ -8,6 +8,24 @@ export default function SplashScreen({ onFinish }) {
   const glowRef = useRef(null);
   const logoBoxRef = useRef(null);
   const poweredRef = useRef(null);
+  const timelineRef = useRef(null);
+
+  const finishSplash = () => {
+    document.body.style.overflow = '';
+    if (onFinish) onFinish();
+  };
+
+  const handleSkip = () => {
+    if (timelineRef.current) {
+      timelineRef.current.kill();
+    }
+    gsap.to(containerRef.current, {
+      opacity: 0,
+      duration: 0.3,
+      ease: 'power2.out',
+      onComplete: finishSplash
+    });
+  };
 
   useEffect(() => {
     // 1. Lock scrolling during splash intro
@@ -22,12 +40,9 @@ export default function SplashScreen({ onFinish }) {
       if (prefersReducedMotion || hasSeenIntro) {
         gsap.to(containerRef.current, {
           opacity: 0,
-          duration: 4,
-          ease: 'power2.inOut',
-          onComplete: () => {
-            document.body.style.overflow = '';
-            if (onFinish) onFinish();
-          }
+          duration: 0.25,
+          ease: 'power2.out',
+          onComplete: finishSplash
         });
         return;
       }
@@ -36,101 +51,72 @@ export default function SplashScreen({ onFinish }) {
       sessionStorage.setItem('scanza_intro_seen', 'true');
 
       // Initial States
-      gsap.set(logoBoxRef.current, { opacity: 0, scale: 0.75, y: 25 });
+      gsap.set(logoBoxRef.current, { opacity: 0, scale: 0.88, y: 20 });
       if (poweredRef.current) {
         gsap.set(poweredRef.current, { opacity: 0, y: 15 });
       }
-      gsap.set(glowRef.current, { opacity: 0, scale: 0.7 });
-      gsap.set(containerRef.current, { clipPath: 'circle(150% at 50% 50%)' });
+      gsap.set(glowRef.current, { opacity: 0, scale: 0.8 });
       if (bgImgRef.current) {
-        gsap.set(bgImgRef.current, { opacity: 0.10, scale: 1 });
-        // Slow subtle background movement & opacity breathing (12s duration, scale 1 -> 1.02, opacity 0.08 -> 0.12)
-        gsap.to(bgImgRef.current, {
-          scale: 1.02,
-          opacity: 0.12,
-          duration: 12,
-          ease: 'sine.inOut',
-          repeat: -1,
-          yoyo: true
-        });
+        gsap.set(bgImgRef.current, { opacity: 0.08, scale: 1 });
       }
 
-      // Master Intro Timeline
+      // Master Intro Timeline (Total duration ~2.4s: sleek, punchy, fluid on mobile)
       const tl = gsap.timeline({
-        onComplete: () => {
-          document.body.style.overflow = '';
-          if (onFinish) onFinish();
-        }
+        onComplete: finishSplash
       });
+      timelineRef.current = tl;
 
-      // 0.20s: Logo image appears
+      // 0.15s: Logo appears with smooth ease
       tl.to(logoBoxRef.current, {
         opacity: 1,
         scale: 1,
         y: 0,
-        duration: 0.8,
+        duration: 0.75,
         ease: 'power3.out'
-      }, 0.2);
+      }, 0.15);
 
-      // 0.40s: "Powered by Renza" appears smoothly
+      // 0.35s: "Powered by Renza" enters
       if (poweredRef.current) {
         tl.to(poweredRef.current, {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          ease: 'power3.out'
-        }, 0.4);
+          duration: 0.65,
+          ease: 'power2.out'
+        }, 0.35);
       }
 
-      // 0.80s: Turquoise Brand Activation Glow
+      // 0.30s: Turquoise Brand Glow Blooms
       tl.to(glowRef.current, {
-        opacity: 0.55,
-        scale: 1.3,
-        duration: 0.6,
+        opacity: 0.6,
+        scale: 1.25,
+        duration: 0.8,
         ease: 'sine.out'
-      }, 0.8);
+      }, 0.3);
 
+      // 1.10s: Ambient Pulse
       tl.to(glowRef.current, {
+        opacity: 0.35,
+        scale: 1.4,
+        duration: 0.7,
+        ease: 'sine.inOut'
+      }, 1.1);
+
+      // 1.80s - 2.45s: Silky Cinematic Dissolve to Main Page
+      // Forward drift + opacity fade (zero clipping, zero mobile stutter)
+      tl.to([logoBoxRef.current, glowRef.current], {
         opacity: 0,
-        scale: 1.5,
-        duration: 0.6,
-        ease: 'sine.in'
-      }, 1.4);
+        scale: 1.05,
+        y: -12,
+        duration: 0.65,
+        ease: 'power2.inOut'
+      }, 1.8);
 
-      // 2.00s: Brand Hold
-      tl.to({}, { duration: 1.5 }, 2.0);
-
-      // 3.15s: "Powered by Renza" dissolves before the logo flies to navbar
-      if (poweredRef.current) {
-        tl.to(poweredRef.current, {
-          opacity: 0,
-          y: -10,
-          duration: 0.35,
-          ease: 'power2.in'
-        }, 3.15);
-      }
-
-      // 3.50s - 4.50s: Drive Animation to Top-Left Navbar Position & Video Reveal
-      tl.to(logoBoxRef.current, {
-        x: -window.innerWidth * 0.38,
-        y: -window.innerHeight * 0.43,
-        scale: 0.28,
-        opacity: 0.7,
-        duration: 0.95,
-        ease: 'power3.inOut'
-      }, 3.5);
-
-      tl.to(containerRef.current, {
-        clipPath: 'circle(0% at 50% 50%)',
-        duration: 1.0,
-        ease: 'power4.inOut'
-      }, 3.5);
-
-      // Final opacity cleanup
+      // Background cross-fades out to reveal the main page
       tl.to(containerRef.current, {
         opacity: 0,
-        duration: 0.15
-      }, 4.45);
+        duration: 0.65,
+        ease: 'power2.inOut'
+      }, 1.8);
 
     }, containerRef);
 
@@ -143,31 +129,44 @@ export default function SplashScreen({ onFinish }) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[100] bg-[#050808] flex items-center justify-center overflow-hidden pointer-events-none select-none"
+      className="fixed inset-0 z-[100] bg-[#050808] flex items-center justify-center overflow-hidden select-none transform-gpu will-change-[opacity]"
+      style={{ height: '100dvh' }}
     >
+      {/* Skip button */}
+      <button
+        type="button"
+        onClick={handleSkip}
+        className="absolute top-6 right-6 z-30 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium tracking-widest text-[#8B9696] hover:text-[#00D2C4] hover:border-[#00D2C4]/40 transition-all uppercase"
+      >
+        Skip
+      </button>
+
       {/* 1. Background Image / Pattern Texture */}
       <div
         ref={bgImgRef}
         className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none transform-gpu"
       />
 
-      {/* 2. Dark Overlay (rgba(0, 0, 0, 0.80)) */}
+      {/* 2. Dark Overlay */}
       <div className="absolute inset-0 bg-black/80 pointer-events-none z-[1]" />
 
       {/* 3. Subtle Turquoise Atmospheric Glow */}
       <div
         ref={glowRef}
-        className="absolute w-[500px] h-[500px] bg-[#00D2C4]/20 rounded-full blur-[80px] pointer-events-none z-[2]"
+        className="absolute w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] bg-[#00D2C4]/20 rounded-full blur-[70px] sm:blur-[90px] pointer-events-none z-[2] transform-gpu will-change-[transform,opacity]"
       />
 
-      {/* 4. SCANZAA Logo — black bg melts into page via screen blend */}
-      <div ref={logoBoxRef} className="relative z-10 flex flex-col items-center">
+      {/* 4. SCANZAA Logo & Powered By Brand Box */}
+      <div
+        ref={logoBoxRef}
+        className="relative z-10 flex flex-col items-center px-4 max-w-full text-center transform-gpu will-change-[transform,opacity]"
+      >
         <ScanzaLogo
           size="splash"
           layout="vertical"
           showTagline={true}
           taglineText="SCAN  DISCOVER  DINE"
-          className="filter drop-shadow-[0_0_40px_rgba(0,210,196,0.5)]"
+          className="filter drop-shadow-[0_0_35px_rgba(0,210,196,0.45)] max-w-[260px] sm:max-w-none"
         />
         <div
           ref={poweredRef}
