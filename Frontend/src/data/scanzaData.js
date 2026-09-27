@@ -1,23 +1,8 @@
 export const ECOSYSTEM_DATA = [
   {
     id: '01',
-    title: 'SUPER ADMIN',
-    subtitle: 'Managed by Scanza Team',
-    description: 'One central platform to manage your Scanza restaurant network with complete authority and insights.',
-    badge: 'Platform Control',
-    iconName: 'ShieldCheck',
-    features: [
-      'Restaurant onboarding & management',
-      'Global platform analytics & revenue tracking',
-      'Restaurant account & tier management',
-      'Subscription & service provisioning',
-      'System-level controls & security protocols'
-    ]
-  },
-  {
-    id: '02',
     title: 'RESTAURANT ADMIN',
-    subtitle: 'For Restaurant Owners & Staff',
+    subtitle: 'For Restaurant Owners & Managers',
     description: 'Everything restaurants need to manage their digital menu in real-time with zero friction.',
     badge: 'Operations Hub',
     iconName: 'Store',
@@ -31,7 +16,7 @@ export const ECOSYSTEM_DATA = [
     ]
   },
   {
-    id: '03',
+    id: '02',
     title: 'CUSTOMER EXPERIENCE',
     subtitle: 'For Restaurant Guests',
     description: 'A simple scan that opens the restaurant\'s digital menu instantly right inside their mobile browser.',
@@ -44,6 +29,22 @@ export const ECOSYSTEM_DATA = [
       'High-res dish visual previews & descriptions',
       'Real-time availability badges & dietary tags',
       'Always accesses the absolute latest menu'
+    ]
+  },
+  {
+    id: '03',
+    title: 'WAITER PORTAL',
+    subtitle: 'For Floor Staff & Captains',
+    description: 'A dedicated mobile workflow empowering floor staff to track table activity, receive guest requests, and serve faster.',
+    badge: 'Floor Assist',
+    iconName: 'BellRing',
+    features: [
+      'Real-time table order notifications & alerts',
+      'Instant guest assistance & service call tracking',
+      'Live table status & order fulfillment status',
+      'Quick order adjustments & item punch-in',
+      'Direct kitchen & service bar coordination',
+      'Fast digital bill generation & checkout support'
     ]
   }
 ];
@@ -269,7 +270,7 @@ export const FOOTER_LINKS = {
       { name: 'Core Features', href: '#features' },
       { name: 'Restaurant Admin', href: '#admin' },
       { name: 'Customer Experience', href: '#customer' },
-      { name: 'Features Ecosystem', href: '#features' }
+      { name: 'Waiter Portal', href: '#ecosystem' }
     ]
   },
   column4: {

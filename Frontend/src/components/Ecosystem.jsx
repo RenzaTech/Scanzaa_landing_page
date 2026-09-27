@@ -1,15 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import { ECOSYSTEM_DATA } from '../data/scanzaData';
-import { ShieldCheck, Store, Smartphone, Check, Sparkles, ArrowUpRight } from 'lucide-react';
+import { Store, Smartphone, BellRing, Check, Sparkles, ArrowUpRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const iconMap = {
-  ShieldCheck: ShieldCheck,
   Store: Store,
-  Smartphone: Smartphone
+  Smartphone: Smartphone,
+  BellRing: BellRing
 };
 
 export default function Ecosystem() {
@@ -59,14 +59,14 @@ export default function Ecosystem() {
             <span className="gradient-text-turquoise">Three Experiences.</span>
           </h2>
           <p className="text-base sm:text-lg text-[#8B9696] leading-relaxed">
-            Scanza connects administration, venue operations, and guest dining into one seamless digital menu ecosystem.
+            Scanza connects venue operations, floor staff, and guest dining into one seamless digital menu ecosystem.
           </p>
         </div>
 
         {/* Ecosystem 3 Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {ECOSYSTEM_DATA.map((card, index) => {
-            const IconComponent = iconMap[card.iconName] || ShieldCheck;
+            const IconComponent = iconMap[card.iconName] || Store;
             
             return (
               <div
