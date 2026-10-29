@@ -1,9 +1,15 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-  "installCommand": "npm --prefix Frontend install",
-  "buildCommand": "npm --prefix Frontend run build",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
   "outputDirectory": "Frontend/dist",
+  "crons": [
+    {
+      "path": "/api/lead-retries",
+      "schedule": "0 * * * *"
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

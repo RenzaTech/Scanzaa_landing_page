@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import SplashScreen from './components/SplashScreen';
-import AnimatedBackground from './components/AnimatedBackground';
+import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from './components/Navbar';
-import ContactModal from './components/ContactModal';
-
-// Pages
+import SiteChrome, { PageIntro } from './components/SiteChrome';
 import HomePage from './pages/HomePage';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const LENIS_LERP = 0.22;
+const LENIS_WHEEL_MULTIPLIER = 1.15;
 
 // Scroll to top helper on route change
 function ScrollToTop() {
@@ -16,19 +20,56 @@ function ScrollToTop() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  useEffect(() => {
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let lenis;
+    const updateScrollTrigger = () => ScrollTrigger.update();
+    const tick = (time) => lenis?.raf(time * 1000);
+
+    const syncScroll = () => {
+      if (lenis) {
+        lenis.off('scroll', updateScrollTrigger);
+        gsap.ticker.remove(tick);
+        lenis.destroy();
+        lenis = undefined;
+      }
+
+      if (!motionPreference.matches) {
+        lenis = new Lenis({
+          autoRaf: false,
+          lerp: LENIS_LERP,
+          smoothWheel: true,
+          wheelMultiplier: LENIS_WHEEL_MULTIPLIER,
+          syncTouch: false,
+          anchors: { offset: -88 },
+        });
+        lenis.on('scroll', updateScrollTrigger);
+        gsap.ticker.add(tick);
+      }
+    };
+
+    gsap.ticker.lagSmoothing(0);
+    syncScroll();
+    motionPreference.addEventListener('change', syncScroll);
+    return () => {
+      motionPreference.removeEventListener('change', syncScroll);
+      if (lenis) {
+        lenis.off('scroll', updateScrollTrigger);
+        gsap.ticker.remove(tick);
+      }
+      lenis?.destroy();
+    };
+  }, []);
+
   return null;
 }
 
 // Layout wrapper to show global navbar
 function AppContent() {
-  const [contactModalOpen, setContactModalOpen] = useState(false);
-
   const handleOpenContact = () => {
-    setContactModalOpen(true);
-  };
-
-  const handleCloseContact = () => {
-    setContactModalOpen(false);
+    document.getElementById('contact')?.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+    });
   };
 
   return (
@@ -37,6 +78,8 @@ function AppContent() {
 
       {/* Global Navigation Bar */}
       <Navbar onOpenContact={handleOpenContact} />
+      <SiteChrome />
+      <PageIntro />
 
       {/* Routes */}
       <Routes>
@@ -44,27 +87,13 @@ function AppContent() {
         {/* Fallback to Home */}
         <Route path="*" element={<HomePage onOpenContact={handleOpenContact} />} />
       </Routes>
-
-      {/* Global Contact Inquiry Modal */}
-      <ContactModal isOpen={contactModalOpen} onClose={handleCloseContact} />
     </>
   );
 }
 
 export default function App() {
-  const [splashFinished, setSplashFinished] = useState(false);
-
   return (
-    <div className="bg-[#050808] min-h-screen text-white font-poppins antialiased selection:bg-[#00D2C4] selection:text-[#050808] relative overflow-x-hidden">
-      {/* 1. Splash Screen with Logo Animation */}
-      {!splashFinished && (
-        <SplashScreen onFinish={() => setSplashFinished(true)} />
-      )}
-
-      {/* 2. Continuous Animated Ambient Background */}
-      <AnimatedBackground />
-
-      {/* 3. React Router App Content */}
+    <div className="min-h-screen overflow-x-clip bg-[#101412] text-[#f3f0e8] antialiased selection:bg-[#FCC133] selection:text-[#171411]">
       <BrowserRouter>
         <AppContent />
       </BrowserRouter>
