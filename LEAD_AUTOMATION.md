@@ -6,6 +6,8 @@ For a live site that remains available when your computer and local Docker are o
 
 The retry worker runs inside the hosted web service every minute. Delivery jobs and lead data remain in Neon, so a service restart does not erase pending work. Provider webhooks continue to update delivery states independently.
 
+The Vercel configuration also supports deploying the frontend and API functions. Its retry cron runs daily so the schedule is valid on Vercel Hobby as well as paid plans; queued delivery retries can therefore take up to a day to run. Use the Render worker when minute-level retry processing is required.
+
 ## Deploy to Render
 
 1. Push this repository to GitHub and create a Render Blueprint from that repository. Render reads `render.yaml` and builds the Docker image.
